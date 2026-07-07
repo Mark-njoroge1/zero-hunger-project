@@ -1,13 +1,3 @@
-"""
-dashboard_data.py
-------------------
-Member 3 responsibility: Dashboard & Market Data Analyst
-
-This module provides the data shown on the Home dashboard:
-- Weather conditions
-- Market commodity prices
-"""
-
 
 def get_weather_data():
     """
