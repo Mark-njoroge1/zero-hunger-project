@@ -1,9 +1,4 @@
-
 def get_weather_data():
-    """
-    Returns the current weather snapshot for the dashboard.
-    Must always include: temp, condition, humidity.
-    """
     weather = {
         "temp": "24°C",
         "condition": "Light Showers Expected",
@@ -13,10 +8,6 @@ def get_weather_data():
 
 
 def get_market_prices():
-    """
-    Returns current commodity prices for common crops.
-    Keys are crop names, values are display-ready price strings.
-    """
     prices = {
         "Maize": "$25 / Bag",
         "Beans": "$45 / Bag",
