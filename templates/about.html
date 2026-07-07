@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card">
+    <h2>About Our Project</h2>
+    <p><strong>Goal Target:</strong> Sustainable Development Goal 2: Zero Hunger</p>
+    <p>This platform serves as a modern tool to solve critical real-world infrastructure gaps in rural communities. By optimizing data transmission over accessible frameworks, we eliminate reliance on costly middlemen, mitigate environmental risks, and maximize output productivity.</p>
+    
+    <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
+    
+    <h3>Engineering Team Members</h3>
+    <ul>
+        {% for member in members %}
+            <li style="font-size: 16px; margin: 5px 0;"><strong>{{ member }}</strong></li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

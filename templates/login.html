@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card" style="max-width: 450px; margin: 50px auto;">
+    <h2>Welcome to AgriAdvisory</h2>
+    <p>Empowering small farmers with real-time insight.</p>
+    <form method="POST">
+        <label>Email Address</label>
+        <input type="email" name="email" required placeholder="farmer@example.com">
+        
+        <label>Password</label>
+        <input type="password" name="password" required placeholder="••••••••">
+        
+        <div style="display: flex; gap: 10px;">
+            <button type="submit" name="action" value="login">Sign In</button>
+            <button type="submit" name="action" value="register" style="background-color: #558b2f;">Create Account</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

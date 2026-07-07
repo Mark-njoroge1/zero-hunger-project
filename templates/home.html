@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Dashboard Dashboard</h2>
+<div class="grid">
+    <div class="card">
+        <h3>⛅ Live Weather Forecast</h3>
+        <p><strong>Temperature:</strong> {{ weather.temp }}</p>
+        <p><strong>Conditions:</strong> {{ weather.condition }}</p>
+        <p><strong>Humidity:</strong> {{ weather.humidity }}</p>
+    </div>
+    
+    <div class="card">
+        <h3>💰 Market Commodity Prices</h3>
+        <ul>
+            {% for crop, price in prices.items() %}
+                <li><strong>{{ crop }}:</strong> {{ price }}</li>
+            {% endfor %}
+        </ul>
+        <small style="color: gray;">Direct links to wholesale buyers attached.</small>
+    </div>
+</div>
+<div class="card" style="text-align: center;">
+    <h3>Need Personalized Farm Planning?</h3>
+    <p>Run our advisory engine to evaluate current soil variables against atmospheric changes.</p>
+    <a href="{{ url_for('advisory') }}"><button style="max-width: 250px;">Get Insights</button></a>
+</div>
+{% endblock %}
