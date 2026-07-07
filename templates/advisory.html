@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card">
+    <h2>🌾 Predictive Smart Advisory</h2>
+    <p>Input your variables below to receive recommendations built on regional patterns and professional agricultural data models.</p>
+    
+    <form method="POST">
+        <label>Target Crop Setup</label>
+        <select name="crop">
+            <option value="Maize">Maize (Corn)</option>
+            <option value="Beans">Common Beans</option>
+            <option value="Potatoes">Irish Potatoes</option>
+        </select>
+        
+        <label>Current Soil Profile</label>
+        <select name="soil_type">
+            <option value="Loamy">Loamy (Rich/Dark)</option>
+            <option value="Sandy">Sandy (Loose/Dry)</option>
+            <option value="Clay">Clay (Dense/Heavy)</option>
+        </select>
+        
+        <button type="submit">Generate AI Recommendation</button>
+    </form>
+
+    {% if recommendation %}
+        <div style="background-color: #e8f5e9; padding: 15px; border-left: 5px solid var(--primary); margin-top: 20px; border-radius: 4px;">
+            <h4>📋 System Result:</h4>
+            <p>{{ recommendation }}</p>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

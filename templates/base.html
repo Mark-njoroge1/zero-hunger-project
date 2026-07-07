@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriAdvisory - SDG 2 Platform</title>
+    <style>
+        :root { --primary: #2e7d32; --primary-dark: #1b5e20; --bg: #f1f8e9; --card-bg: #ffffff; --text: #333; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: var(--bg); margin: 0; color: var(--text); }
+        nav { background-color: var(--primary); padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; color: white; }
+        nav a { color: white; text-decoration: none; margin-left: 20px; font-weight: bold; }
+        nav a:hover { text-decoration: underline; }
+        .container { max-width: 900px; margin: 30px auto; padding: 20px; }
+        .card { background: var(--card-bg); padding: 25px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 20px; }
+        h1, h2, h3 { color: var(--primary-dark); margin-top: 0; }
+        input, select, textarea { width: 100%; padding: 10px; margin: 10px 0 20px 0; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        button { background-color: var(--primary); color: white; border: none; padding: 12px 20px; border-radius: 4px; cursor: pointer; font-size: 16px; width: 100%; font-weight: bold;}
+        button:hover { background-color: var(--primary-dark); }
+        .alert { padding: 10px; margin-bottom: 15px; border-radius: 4px; background-color: #ffc107; color: #333; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        @media(max-width: 600px) { .grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <nav>
+        <span style="font-size: 20px; font-weight: bold;">🌱 AgriAdvisory</span>
+        <div>
+            {% if session.get('user') %}
+                <a href="{{ url_for('home') }}">Home</a>
+                <a href="{{ url_for('advisory') }}">Advisory</a>
+                <a href="{{ url_for('qa') }}">Q&A Forum</a>
+                <a href="{{ url_for('about') }}">About</a>
+                <a href="{{ url_for('logout') }}" style="color: #ffcdd2;">Logout</a>
+            {% endif %}
+        </div>
+    </nav>
+    <div class="container">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>
