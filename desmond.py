@@ -1,6 +1,7 @@
 from flask import Flask, request, redirect, url_for, flash, session
 
 app = Flask(__name__)
+
 app.secret_key = 'agri_secure_secret_key'
 
 USERS = {
